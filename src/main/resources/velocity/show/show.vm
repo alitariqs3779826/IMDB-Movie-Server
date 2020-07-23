@@ -1,0 +1,325 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+    #if($show)
+       
+      
+       
+        </form>
+       
+        <h1 contenteditable="false">$show.showTitle</h1>
+       
+        <div class="show">
+       
+            <div class="showCover">
+       
+                <img src="$show.image" alt="$show.showTitle">
+       
+            </div>
+       
+        </div>
+       
+        <h3>
+       
+            <div class="avgRate" style="width:720px; margin:0 auto;">
+       
+                Average Rating:
+       
+            </div>
+       
+            <div class="avgRate" style="width:450px; margin:0 auto;">
+       
+                #if($afiveStar)
+       
+                    <input type="radio" id="astar5" name="avgRate" value="5" checked disabled />
+       
+                #else
+       
+                    <input type="radio" id="astar5" name="avgRate" value="5" disabled />
+       
+                #end
+       
+                <label for="astar5" title="text">5 stars</label>
+       
+                #if($afourStar)
+       
+                    <input type="radio" id="astar4" name="avgRate" value="4" checked disabled />
+       
+                #else
+       
+                    <input type="radio" id="astar4" name="avgRate" value="4" disabled />
+       
+                #end
+       
+                <label for="astar4" title="text">4 stars</label>
+       
+                #if($athreeStar)
+       
+                    <input type="radio" id="astar3" name="avgRate" value="3" checked disabled />
+       
+                #else
+       
+                    <input type="radio" id="astar3" name="avgRate" value="3" disabled />
+       
+                #end
+       
+                <label for="astar3" title="text">3 stars</label>
+       
+                #if($atwoStar)
+       
+                    <input type="radio" id="astar2" name="avgRate" value="2" checked disabled />
+       
+                #else
+       
+                    <input type="radio" id="astar2" name="avgRate" value="2" disabled />
+       
+                #end
+       
+                <label for="astar2" title="text">2 stars</label>
+       
+                #if($aoneStar)
+       
+                    <input type="radio" id="astar1" name="avgRate" value="1" checked disabled />
+       
+                #else
+       
+                    <input type="radio" id="astar1" name="avgRate" value="1" disabled />
+       
+                #end
+       
+                <label for="astar1" title="text">1 stars</label>
+       
+                <br>
+       
+            </div>
+       
+            <br>
+            
+            <br>
+            
+            <br>
+            
+            <br>
+            
+            <br>
+            
+            <br>
+            
+            #if($currentUser and $type == "PCo")
+            
+                <form id="submitData" method="post">
+            
+                    <div style="text-align: center" id="info">
+            
+                        Genre:
+            
+                        <input type="text" name="genre" value="$show.genre">
+            
+                        <br>
+            
+                        Year:
+            
+                        <input type="text" name="year" value="$show.year">
+            
+                        <br>
+            
+                        Length:
+            
+                        <input type="text" name="length" value="$show.length">
+            
+                        <br>
+            
+                        #if($show.isMovie)
+            
+                            Type:
+            
+                            <input type="text" name="movie" value="Movie">
+            
+                        #else
+            
+                            Type:
+            
+                            <input type="text" name="movie" value="Series">
+            
+                        #end
+            
+                        <br>
+            
+                    </div>
+            
+                    <div class="subButton" align="center" style="width:720px;">
+            
+                        <input type="submit" name="subButton" value="Submit " style="background-color:yellow;">
+            
+                    </div>
+            
+                </form>
+            
+            #else
+            
+                <div style="text-align: center" contenteditable="false">
+            
+                    Genre:  $show.genre
+            
+                    <br>
+            
+                    Year:   $show.year
+            
+                    <br>
+            
+                    Length: $show.length
+            
+                    <br>
+            
+                    #if($show.isMovie)
+            
+                        Type: Movie
+            
+                    #else
+            
+                        Type: Series
+            
+                    #end
+            
+                </div>
+            
+            #end
+            
+            <br>
+            
+            #if($comments)
+            
+                <div style="text-align: center">
+            
+                    <h3> Previous comments: </h3>
+            
+                    #foreach($comment in $comments)
+            
+                        <output> $comment </output>
+            
+                        <br>
+            
+                    #end
+            
+                </div>
+            
+                <br>
+            
+            #end
+        </h3>
+        
+        <form id="submitRate" method="post">
+        
+        #if($currentUser)
+        
+            <div class="rate" style="width:450px; margin:0 auto;">
+        
+                #if($fiveStar)
+        
+                    <input type="radio" id="star5" name="rate" value="5" checked />
+        
+                #else
+        
+                    <input type="radio" id="star5" name="rate" value="5" />
+        
+                #end
+        
+                <label for="star5" title="text">5 stars</label>
+        
+                #if($fourStar)
+        
+                    <input type="radio" id="star4" name="rate" value="4" checked />
+        
+                #else
+        
+                    <input type="radio" id="star4" name="rate" value="4" />
+        
+                #end
+        
+                <label for="star4" title="text">4 stars</label>
+        
+                #if($threeStar)
+        
+                    <input type="radio" id="star3" name="rate" value="3" checked />
+        
+                #else
+        
+                    <input type="radio" id="star3" name="rate" value="3" />
+        
+                #end
+        
+                <label for="star3" title="text">3 stars</label>
+        
+                #if($twoStar)
+        
+                    <input type="radio" id="star2" name="rate" value="2" checked />
+        
+                #else
+        
+                    <input type="radio" id="star2" name="rate" value="2" />
+        
+                #end
+        
+                <label for="star2" title="text">2 stars</label>
+        
+                #if($oneStar)
+        
+                    <input type="radio" id="star1" name="rate" value="1" checked />
+        
+                #else
+        
+                    <input type="radio" id="star1" name="rate" value="1" />
+        
+                #end
+        
+                <label for="star1" title="text">1 stars</label>
+        
+            </div>
+        
+            <br>
+        
+            <br>
+        
+            <br>
+        
+            <div class="sButton" style="width:720px; margin:0 auto;">
+        
+                <input type="text" name="comment" placeholder="$lastComment" value="" size="70">
+        
+            </div>
+        
+            <div class="sButton" style="width:720px; margin:0 auto;">
+        
+                <input type="submit" value="Submit Rating">
+        
+            </div>
+        
+            <br>
+        
+            <br>
+        
+            <br>
+        
+        #end
+          <form id="deleteShow" method="post">
+       
+            #if($currentUser and $type == "admin")
+       
+                <div class="delButton" align="left" style="width:720px;">
+       
+                    <input type="submit" name="delButton" value="Delete Show" style="background-color:green;">
+       
+                </div>
+       
+            #end
+        
+        </form>
+    
+    #elseif($showDeleted)
+    
+        <h1>Show Deleted Successfully</h1>
+   
+    #else
+        <h1>$msg.get("SHOW_NOT_FOUND")</h1>
+    #end
+
+#end

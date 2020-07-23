@@ -1,0 +1,117 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+<h2>Create a new account</h2>
+<script type="text/javascript">
+    
+    function onSelectChange(){
+    
+        var sel = document.getElementById('accountType');
+    
+        var strUser = sel.options[sel.selectedIndex].text;
+
+
+
+        if(strUser == 'PCo'){
+
+            document.getElementById('PCoName').disabled = false;
+
+            document.getElementById('FN').disabled = true;
+
+            document.getElementById('LN').disabled = true;
+
+            document.getElementById('gender').disabled = true;
+
+            document.getElementById('FN').value = "";
+
+            document.getElementById('LN').value = "";
+
+            document.getElementById('gender').value = "";
+
+        }else{
+
+            document.getElementById('PCoName').disabled = true;
+
+            document.getElementById('FN').disabled = false;
+
+            document.getElementById('LN').disabled = false;
+
+            document.getElementById('gender').disabled = false;
+
+            document.getElementById('PCoName').value = "";
+
+
+
+        }
+    }
+
+</script>
+<form id="register" method="post">
+    
+    <label>User Name:</label>
+    
+    <input type="text" name="userName" id="userName" value="" required>
+    
+    <br>
+    
+    <label>Password:</label>
+    
+    <input type="password" name="password" id="password" value="" required>
+    
+    <br>
+    
+    <label>First Name:</label>
+    
+    <input type="text" name="FN"  id="FN" value="" >
+    
+    <br>
+    
+    <label>Last Name:</label>
+    
+    <input type="text" name="LN"  id="LN" value="" >
+    
+    <br>
+    
+    <label>Gender:</label>
+    
+    <input type="text" name="gender"  id="gender" value="" >
+    
+    <br>
+    
+    <label>Country:</label>
+    
+    <input type="text" name="country"  id= "country" value="" required>
+    
+    <br>
+    
+    <label>Input the email:</label>
+    
+    <input type="text" name="email"  id="email" value="" required>
+    
+    <br>
+    
+    <label>Please select a type:</label>
+    
+    <select name="accountType" id= "accountType" onchange="onSelectChange()">
+    
+        <option value="user">user</option>
+    
+        <option value="Critic">Critic</option>
+    
+        <option value="PCo">PCo</option>
+    
+    </select>
+    
+    <br>
+    
+    <label>Company Name:</label>
+    
+    <input type="text" name="PCoName"  id="PCoName" disabled = true />
+    
+    <br>
+    
+    <input type="submit" value="Submit">
+</fo
+
+rm>
+
+#end

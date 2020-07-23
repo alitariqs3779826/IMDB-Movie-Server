@@ -1,0 +1,39 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+<h2>Create a new entry</h2>
+
+<form id="newEntry" method="post">
+    <label>Enter name:</label>
+    <input type="text" name="showName" placeholder="input name..." value="" required>
+    <br>
+    <label>Enter genre:</label>
+    <input type="text" name="showGenre" placeholder="input genre..." value="" required>
+    <br>
+        <br>
+    <select id="Movie" name="Movie">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+    <label>Input the length:</label>
+    <input type="text" name="length" placeholder="input length..." value="" required>
+    <br>
+    <label>movie?</label>
+
+    </select>
+    <br>
+    <label>series?</label>
+    <br>
+    <select id="Series" name="Series">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+    </select>
+    <br>
+    <label>Input the proco ID:</label>
+    <input type="text" name="proco_ID" placeholder="input proco_ID..." value="" required>
+    <br>
+    <label>Input the year:</label>
+    <input type="text" name="year" placeholder="input year..." value="" required>
+    <br>
+    <input type="submit" value="Submit">
+
+</form>
+#end

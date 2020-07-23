@@ -1,0 +1,38 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+   
+    #if($person)
+   
+    <h1>$person.fullName</h1>
+   
+    <div class="show">
+   
+        <div class="showCover">
+   
+            <img src="$person.image" alt="$person.fullName">
+   
+        </div>
+   
+    </div>
+   
+    <h3>
+   
+        Role:      $person.role
+   
+        <br>
+   
+        Bio:       $person.bio
+   
+        <br>
+   
+        Birthdate: $person.birthdate
+   
+    </h3>
+   
+    #else
+   
+    <h1>$msg.get("PERSON_NOT_FOUND")</h1>
+   
+    #end
+
+#end

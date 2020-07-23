@@ -1,0 +1,49 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+<h2>The Account that need to be reviewed.</h2>
+
+<table style="width:100%">
+    <tr>
+        <th align= "right"><strong>User Name</strong></th>
+        
+        <th align= "right"><strong>Email</strong></th>
+        
+    
+    </tr>
+    #foreach($account in $pendingAccounts)
+     
+        <form id="review" method="post">
+     
+            <tr>
+     
+                <td>$account.username <input type="hidden" name="username" value=$account.username required> </td>
+     
+                <td>$account.email</td>
+     
+  
+
+             
+
+                <td><select id="Review" name="Review">
+
+                    <option value="accept">Accept</option>
+
+                    <option value="reject">Reject</option>
+
+                </select>
+
+                </td>
+
+                <td><input type="submit" value="Submit"></td>
+
+            </tr>
+
+        </form>
+
+    #end
+
+</table>
+
+
+
+#end
